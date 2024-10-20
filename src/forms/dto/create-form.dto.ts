@@ -1,6 +1,6 @@
 import { IsString, IsNotEmpty, IsArray, ValidateNested, IsEnum, IsBoolean, IsOptional } from 'class-validator';
 import { Type } from 'class-transformer';
-import { FieldType } from '../form.schema';
+import { FieldType } from '../forms.schema';
 
 class FieldDto {
   @IsString()

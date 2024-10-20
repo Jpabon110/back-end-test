@@ -5,6 +5,7 @@ import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { FormsModule } from './forms/forms.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { FormResponseModule } from './form-response/form-response.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
       inject: [ConfigService],
     }),
     FormsModule,
+    FormResponseModule,
   ],
   controllers: [AppController],
   providers: [AppService],
