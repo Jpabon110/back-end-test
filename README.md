@@ -22,6 +22,7 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
+
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
@@ -30,6 +31,12 @@
 
 ```bash
 $ npm install
+```
+
+## Config .env file
+You have to create a file in the root folder, named .env with the values
+```bash
+$ MONGODB_URI='value to conexion with data base'
 ```
 
 ## Compile and run the project
