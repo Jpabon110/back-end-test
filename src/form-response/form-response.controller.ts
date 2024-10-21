@@ -1,4 +1,4 @@
-import { Controller, Post, Body, Param } from '@nestjs/common';
+import { Controller, Post, Body, Param, Get } from '@nestjs/common';
 import { FormResponseService } from './form-response.service';
 import { FormResponseDto } from './dto/form-response.dto';
 
@@ -12,5 +12,12 @@ export class FormResponseController {
     @Body() body: FormResponseDto
   ) {
     return await this.formResponseService.submitFormResponse(formId, body.fields);
+  }
+
+  @Get(':formId/responses')
+  async allDataFormResponse(
+    @Param('formId') formId: string
+  ) {
+    return await this.formResponseService.findAllFormResponseData(formId);
   }
 }

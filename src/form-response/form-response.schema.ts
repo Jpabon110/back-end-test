@@ -14,7 +14,7 @@ class FieldResponse {
 
 @Schema({ timestamps: true })
 export class FormResponse {
-  @Prop({ type: Types.ObjectId, ref: 'Form', required: true })  // Ref a 'Form'
+  @Prop({ type: Types.ObjectId, ref: 'Form', required: true })
   form_id: Types.ObjectId;
 
   @Prop({ type: [FieldResponse], required: true })

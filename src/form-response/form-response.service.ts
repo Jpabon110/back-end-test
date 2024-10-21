@@ -8,10 +8,9 @@ import { FormResponse, FormResponseDocument } from './form-response.schema';
 export class FormResponseService {
   constructor(
     @InjectModel(Form.name) private formModel: Model<FormDocument>,
-    @InjectModel(FormResponse.name) private formResponseModel: Model<FormResponseDocument>, // Este también
+    @InjectModel(FormResponse.name) private formResponseModel: Model<FormResponseDocument>,
   ) {}
 
-  // Este método utiliza los modelos para interactuar con la base de datos, pero devuelve documentos
   async submitFormResponse(
     formId: string, 
     fields: { name: string, value: string }[]
@@ -21,7 +20,7 @@ export class FormResponseService {
       throw new NotFoundException('Formulario no encontrado');
     }
 
-    const fieldNames = form.fields.map(field => field.name); // form ya es del tipo FormDocument
+    const fieldNames = form.fields.map(field => field.name);
     const invalidResponses = fields.filter(res => !fieldNames.includes(res.name));
 
     if (invalidResponses.length > 0) {
@@ -34,5 +33,12 @@ export class FormResponseService {
     });
 
     return formResponse;
+  }
+
+  async findAllFormResponseData(
+    formId: string
+  ): Promise<FormResponseDocument[]> {
+    const dataFormResponses: FormResponseDocument[] = await this.formResponseModel.find({ form_id: formId })
+    return dataFormResponses;
   }
 }
