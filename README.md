@@ -39,6 +39,43 @@ You have to create a file in the root folder, named .env with the values
 $ MONGODB_URI='value to conexion with data base'
 ```
 
+## Curl for test (recomend postman)
+
+```bash
+curl --location --request GET 'http://localhost:3000/forms/' \
+--data-raw '{
+    "name": "Formulario 2",
+    "description": "informacion de input, date y selects",
+    "fields": [
+        {
+            "name": "email",
+            "label": "email",
+            "type": "text",
+            "required": false,
+            "defaultValue": "example@gmail.com"
+        },
+        {
+            "name": "fecha",
+            "label": "fecha",
+            "type": "date",
+            "required": true
+        },
+        {
+            "name": "sexo",
+            "label": "sexo",
+            "type": "select",
+            "values": [
+            "hombre",
+            "mujer",
+            "otros"
+            ],
+            "required": true,
+            "defaultValue": "No"
+        }
+    ]
+}'
+```
+
 ## Compile and run the project
 
 ```bash
