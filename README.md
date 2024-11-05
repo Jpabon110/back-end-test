@@ -44,6 +44,17 @@ MONGODB_URI="mongodb+srv://user:passwaord@localhost:5432/databasename?retryWrite
 
 ```
 
+## docker file steps
+
+```bash
+$ docker build -t backend-test:1.0.0 .
+
+$ docker run -d -p 3000:3000 \
+  -e MONGODB_URI='mongodb://localhost:27017/backend-test' \
+  --name backend-test \
+  backend-test:1.0.0
+```
+
 ## Curl for test (recomend postman)
 
 ```bash
